@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -29,9 +30,11 @@ public class Product implements Serializable {
  @GeneratedValue(strategy = GenerationType.IDENTITY) 
  private long id;
 
+ @NotEmpty(message =  "Name must not be null")
  @Column(name = "product_name", length = 100)
  private String name;
 
+ @NotEmpty(message =  "Name must not be null")
  @Column(name = "product_description", length = 500)
  private String description;
  private String price;
